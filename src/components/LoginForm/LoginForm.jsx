@@ -2,10 +2,6 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './LoginForm.module.css'
 import * as authService from '../../services/authService'
-import { FormControl,  FormLabel, } from '@chakra-ui/form-control'
-import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
-import { VStack } from "@chakra-ui/layout"
-import { Button }  from "@chakra-ui/button"
 
 const LoginForm = props => {
   const [formData, setFormData] = useState({
@@ -31,8 +27,6 @@ const LoginForm = props => {
   }
 
   return (
-    <>
-    <VStack> 
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
@@ -40,7 +34,7 @@ const LoginForm = props => {
     >
       <div className={styles.inputContainer}>
         <label htmlFor="email" className={styles.label}>Email</label>
-        <Input
+        <input
           type="text"
           autoComplete="off"
           id="email"
@@ -51,7 +45,7 @@ const LoginForm = props => {
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="password" className={styles.label}>Password</label>
-        <Input
+        <input
           type="password"
           autoComplete="off"
           id="password"
@@ -61,14 +55,12 @@ const LoginForm = props => {
         />
       </div>
       <div>
-        <Button className={styles.button}>Log In</Button>
+        <button className={styles.button}>Log In</button>
         <Link to="/">
-          <Button>Cancel</Button>
+          <button>Cancel</button>
         </Link>
       </div>
     </form>
-    </VStack>
-    </>
   )
 }
 
