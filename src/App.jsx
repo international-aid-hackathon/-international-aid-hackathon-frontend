@@ -13,7 +13,7 @@ import Orders from './pages/Orders/Orders'
 
 // services
 import * as authService from './services/authService'
-import * as ordersService from './services/ordersService'
+// import * as ordersService from './services/ordersService'
 // end of services
 
 const App = () => {
@@ -38,14 +38,14 @@ const App = () => {
   }
 
   //create an orders
-  const createOrders = newOrder => {
-    ordersService.createOrders(newOrder)
-    .then(createOrders => {
-      setOrders([...orders, createOrders])
-      navigate('/')
-    })
-    .catch(navigate('/'))
-  }
+  // const createOrders = newOrder => {
+  //   ordersService.createOrders(newOrder)
+  //   .then(createOrders => {
+  //     setOrders([...orders, createOrders])
+  //     navigate('/')
+  //   })
+  //   .catch(navigate('/'))
+  // }
 
 
 
@@ -70,10 +70,10 @@ const App = () => {
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
-        <Routes
+        {/* <Routes
           path="/orders"
           element={<Orders createOrders={createOrders}/>}
-        />
+        /> */}
       </Routes>
     </>
   )
