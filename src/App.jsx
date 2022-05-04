@@ -8,18 +8,15 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-
 //end of components
 
 // services
 import * as authService from './services/authService'
-
 // end of services
 
 const App = () => {
   //states
   const [user, setUser] = useState(authService.getUser())
-
   //end of states
 
   //useEffect
@@ -37,8 +34,7 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  //create an orders
-  
+ 
 
 
 
@@ -63,7 +59,7 @@ const App = () => {
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
-        
+      
       </Routes>
     </>
   )
