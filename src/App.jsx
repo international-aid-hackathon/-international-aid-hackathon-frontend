@@ -8,18 +8,15 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import Orders from './pages/Orders/Orders'
 //end of components
 
 // services
 import * as authService from './services/authService'
-import * as ordersService from './services/ordersService'
 // end of services
 
 const App = () => {
   //states
   const [user, setUser] = useState(authService.getUser())
-  const [orders, setOrders] = useState([])
   //end of states
 
   //useEffect
@@ -37,15 +34,7 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  //create an orders
-  const createOrders = newOrder => {
-    ordersService.createOrders(newOrder)
-    .then(createOrders => {
-      setOrders([...orders, createOrders])
-      navigate('/')
-    })
-    .catch(navigate('/'))
-  }
+ 
 
 
 
@@ -70,10 +59,7 @@ const App = () => {
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
-        <Routes
-          path="/orders"
-          element={<Orders createOrders={createOrders}/>}
-        />
+      
       </Routes>
     </>
   )
