@@ -7,7 +7,7 @@ export async function createOrders(orders) {
     method: 'POST',
     headers: {'content-type': 'application/json'},
     body: JSON.stringify(orders)
-  })
+  }) 
 	return order.json()
 }
 
