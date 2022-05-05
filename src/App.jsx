@@ -59,10 +59,8 @@ const App = () => {
       `https://agile-ocean-17104.herokuapp.com/api/jobs/${user.profile}`
     );
     const data = await res.json();
-    // console.log(data)
     setJobData(data);
   };
-  console.log(jobData);
 
   useEffect(() => {
     MakeAPICall();
