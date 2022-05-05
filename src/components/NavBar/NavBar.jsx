@@ -1,34 +1,40 @@
 import { Link } from 'react-router-dom'
-
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 const NavBar = ({ user, handleLogout }) => {
   return (
     <>
       {user ?
-      <div className="container">
-        
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <ul>
-            <li>Welcome, {user.name}</li>
-            <ul><Link to="/profiles">Profiles</Link></ul>
-            <ul><Link to="" onClick={handleLogout}>LOG OUT</Link></ul>
-            <ul><Link to="/changePassword">Change Password</Link></ul>
-            <ul><Link to="/">Dashboard</Link></ul>
-          </ul>
-        </nav>
-        </div>  
+      
+      
+        // <nav>
+        //   <ul>
+        //     <li>Welcome, {user.name}</li>
+        //     <li><Link to="/profiles">Profiles</Link></li>
+        //     <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
+        //     <li><Link to="/changePassword">Change Password</Link></li>
+        //   </ul>
+        // </nav>
+<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Container>
+  <Navbar.Brand href="#home"> {user.name}</Navbar.Brand>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="me-auto">
+      <Nav.Link href="/job">Features</Nav.Link>
+      <Nav.Link ><li><Link to="/changePassword">Change Password</Link></li></Nav.Link>
+    </Nav>
+  </Navbar.Collapse>
+  </Container>
+</Navbar>
       :
-
-        <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav>
           <ul>
             <li><Link to="/login">Log In</Link></li>
             <li><Link to="/signup">Sign Up</Link></li>
-            <li><Link to="/">Dashboard</Link></li>
           </ul>
         </nav>
-        </div>
       }
-
     </>
   )
 }
