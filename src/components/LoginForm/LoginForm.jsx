@@ -61,10 +61,7 @@ const LoginForm = props => {
 
       
         <button className="btn btn-info my-4 btn-block">Log In</button>
-        <small><li><Link to="/signup">Don't have an account</Link></li></small>
-        <Link to="/">
-          <button  className="btn btn-outline-secondary" >Cancel</button>
-        </Link>
+
       
     </form>
 

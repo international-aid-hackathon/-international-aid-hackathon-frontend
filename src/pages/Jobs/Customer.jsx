@@ -6,7 +6,7 @@ export default function Customer({ handleNext, orderData, handleChange }) {
     <>
       <Grid container justifyContent="center">
         <Box
-          p={4}
+          p={5}
           justifyContent={"center"}
           flexDirection={"column"}
           display={"flex"}
