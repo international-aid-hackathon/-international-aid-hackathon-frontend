@@ -4,26 +4,26 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     <>
       {user ?
-      <div class="container">
+      <div className="container">
         
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <ul>
             <li>Welcome, {user.name}</li>
-            <a><Link to="/profiles">Profiles</Link></a>
-            <a><Link to="" onClick={handleLogout}>LOG OUT</Link></a>
-            <a><Link to="/changePassword">Change Password</Link></a>
-            <a><Link to="/">Dashboard</Link></a>
+            <ul><Link to="/profiles">Profiles</Link></ul>
+            <ul><Link to="" onClick={handleLogout}>LOG OUT</Link></ul>
+            <ul><Link to="/changePassword">Change Password</Link></ul>
+            <ul><Link to="/">Dashboard</Link></ul>
           </ul>
         </nav>
         </div>  
       :
 
-        <div class="container">
+        <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <ul>
-            <a><Link to="/login">Log In</Link></a>
-            <a><Link to="/signup">Sign Up</Link></a>
-            <a><Link to="/">Dashboard</Link></a>
+            <li><Link to="/login">Log In</Link></li>
+            <li><Link to="/signup">Sign Up</Link></li>
+            <li><Link to="/">Dashboard</Link></li>
           </ul>
         </nav>
         </div>
