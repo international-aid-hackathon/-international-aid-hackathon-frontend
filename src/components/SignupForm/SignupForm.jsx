@@ -42,7 +42,7 @@ const SignupForm = props => {
 
   return (
 <>
-<form class="text-center border border-light p-5" autoComplete="off"
+<form className="text-center border border-light p-5" autoComplete="off"
       onSubmit={handleSubmit}>
     <p className="h4 mb-4">Sign up</p>
     <div className="form-row mb-4">
@@ -60,7 +60,7 @@ const SignupForm = props => {
                 onChange={handleChange}
               />
         </div>
-        <div class="col">
+        <div className="col">
             {/* <!-- Last name --> */}
             <small> last Name </small>
               <input 

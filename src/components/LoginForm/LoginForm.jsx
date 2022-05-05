@@ -32,7 +32,7 @@ const LoginForm = props => {
       onSubmit={handleSubmit}
     className="text-center border border-light p-5"
     >
-     <p class="h4 mb-4">Sign in</p>
+     <p className="h4 mb-4">Sign in</p>
 
       <div className={styles.inputContainer}>
         <label htmlFor="email" className={styles.label}>Email</label>
@@ -55,7 +55,7 @@ const LoginForm = props => {
           value={formData.pw}
           name="pw"
           onChange={handleChange}
-          class="form-control"
+          className="form-control"
         />
       </div>
 
@@ -63,7 +63,7 @@ const LoginForm = props => {
         <button className="btn btn-info my-4 btn-block">Log In</button>
         <small><li><Link to="/signup">Don't have an account</Link></li></small>
         <Link to="/">
-          <button  class="btn btn-outline-secondary" >Cancel</button>
+          <button  className="btn btn-outline-secondary" >Cancel</button>
         </Link>
       
     </form>

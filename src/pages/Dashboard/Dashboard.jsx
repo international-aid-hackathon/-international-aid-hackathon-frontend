@@ -1,21 +1,21 @@
 import React from 'react';
 // import Link from ''
 import { Link, useNavigate } from 'react-router-dom'
-const Dashboard = () => {
+const Dashboard = ({jobs}) => {
 
     return (
         <>
         <main>
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title"><a> Sales </a></h4>
-                    <p class="card-text">Total Sales 0 </p>
+            <div className="card">
+                <div className="card-body">
+                    <h4 className="card-title"><a> Sales </a></h4>
+                    <p className="card-text">Total Sales 0{jobs.length} </p>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title"><a>Card title</a></h4>
-                    <p class="card-text"> Commissions 0 </p>
+            <div className="card">
+                <div className="card-body">
+                    <h4 className="card-title"><a>Card title</a></h4>
+                    <p className="card-text"> Commissions 0 </p>
                 </div>
             </div>
             <div>

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-
+import Customer from '../Customer/Customer'
 function Jobs({ handlecreateJobs}) {
    const [formData, setFormData] = useState('')
    const [validForm, setValidForm] = useState(false)
@@ -58,6 +58,11 @@ function Jobs({ handlecreateJobs}) {
           <option value="Filter">Filter</option>
           <option value="Stove">Stove</option>
         </select>
+          <Customer
+          jobData={jobData}
+           handleChange={handleChange}
+
+          />
         	<button
 						type="submit"
 						disabled={!validForm}
