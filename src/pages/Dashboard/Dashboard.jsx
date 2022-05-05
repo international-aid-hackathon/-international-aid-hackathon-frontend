@@ -1,12 +1,13 @@
 import React from 'react';
 // import Link from ''
 import { Link, useNavigate } from 'react-router-dom'
+import styles from './Dashboard.module.css';
 const Dashboard = ({jobs, jobData}) => {
     console.log('herer',jobData.jobDoc?.length)
 
     return (
         <>
-        <main>
+        <main className={styles.container}>
             <div className="card">
                 <div className="card-body">
                     <h4 className="card-title"><a> Sales </a></h4>
