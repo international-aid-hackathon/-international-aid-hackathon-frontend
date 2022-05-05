@@ -1,11 +1,10 @@
-import { Box, Grid, Container, FormControlLabel, Button } from "@mui/material";
+import { Box, Grid, Typography, FormControlLabel, Button } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function History({ orderData, setOrderData }) {
+export default function History({ setStep, orderData, setOrderData }) {
   const [selected, setSelected] = useState([]);
-  let navigate = useNavigate();
 
   const addToSet = (input) => (e) => {
     const { checked } = e.target;
@@ -18,18 +17,25 @@ export default function History({ orderData, setOrderData }) {
 
   const handleClick = () => {
     setOrderData({ ...orderData, history: selected });
-    navigate(`/job`);
+    setStep((currStep) => currStep + 1);
   };
 
   return (
-    <div>
+    <Grid container justifyContent="center">
       <Box
-        p={5}
+        p={4}
         justifyContent={"center"}
         flexDirection={"column"}
         display={"flex"}
       >
-        <Grid item xs={12} >
+        <Grid item xs={12}>
+          <Box display={"flex"} justifyContent={"center"}>
+            <Typography fontWeight={"bold"} fontSize={24} mb={2}>
+              Reason for purchasing?
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
           <FormControlLabel
             label="Because I don't like the taste of chlorine"
             value="Because I don't like the taste of chlorine"
@@ -42,7 +48,7 @@ export default function History({ orderData, setOrderData }) {
             }
           />
         </Grid>
-        <Grid item xs={12} ml={-5}>
+        <Grid item xs={12}>
           <FormControlLabel
             label="Because my children are getting sick"
             value="Because my children are getting sick"
@@ -53,7 +59,7 @@ export default function History({ orderData, setOrderData }) {
             }
           />
         </Grid>
-        <Grid item xs={12} >
+        <Grid item xs={12}>
           <FormControlLabel
             label="Because the product is cheaper than I'm used to"
             value="Because the product is cheaper than I'm used to"
@@ -66,7 +72,7 @@ export default function History({ orderData, setOrderData }) {
             }
           />
         </Grid>
-        <Grid margin={"0 auto"}>
+        <Grid margin={"0 auto"} mt={3}>
           <Button
             onClick={handleClick}
             style={{
@@ -83,6 +89,6 @@ export default function History({ orderData, setOrderData }) {
           </Button>
         </Grid>
       </Box>
-    </div>
+    </Grid>
   );
 }

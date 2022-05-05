@@ -29,10 +29,11 @@ const App = () => {
     product: "",
     quantity: "",
     "customer.name": "",
-    " customer.address": "",
-    " customer.phoneNumber": "",
+    "customer.address": "",
+    "customer.phoneNumber": "",
     "customer.deposit": "",
-    " customer.peopleInHouse": "",
+    "customer.peopleInHouse": "",
+    history: ""
   });
 
   //end of states
@@ -71,12 +72,11 @@ const App = () => {
     setOrderData({ ...orderData, [name]: e.target.value });
   };
 
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} jobData={jobData}  />} />
+        <Route path="/" element={<Landing user={user} jobData={jobData} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -103,7 +103,8 @@ const App = () => {
           path="/job"
           element={
             <JobOrder
-            user={user}
+              setOrderData={setOrderData}
+              user={user}
               orderData={orderData}
               handleChange={handleChange}
               handleSignupOrLogin={handleSignupOrLogin}
