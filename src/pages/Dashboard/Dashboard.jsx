@@ -10,6 +10,9 @@ const Dashboard = ({jobs}) => {
                 <div className="card-body">
                     <h4 className="card-title"><a> Sales </a></h4>
                     <p className="card-text">Total Sales 0{jobs.length} </p>
+                    <Link to="/history">
+                    <button className="btn btn-primary">  sales History </button>
+                    </Link>
                 </div>
             </div>
             <div className="card">

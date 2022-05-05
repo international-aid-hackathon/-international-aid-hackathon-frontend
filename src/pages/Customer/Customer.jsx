@@ -12,7 +12,7 @@ function Customer({ jobData, handleChange }) {
       <input
           htmlFor="customer.name"
           type="text"
-          id='"customer.name"'
+          id="customer.name"
           value={jobData["customer.name"]}
           onChange={handleChange}
           handleChangeInput="customer.name"

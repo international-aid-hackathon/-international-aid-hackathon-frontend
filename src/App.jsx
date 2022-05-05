@@ -11,6 +11,7 @@ import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import Dashboard  from "./pages/Dashboard/Dashboard";
 import Jobs from "./pages/Jobs/Jobs";
 import Customer from "./pages/Customer/Customer";
+import SalesHistory from "./pages/SalesHistory/SalesHistory";
 //end of components
 
 // services
@@ -69,6 +70,7 @@ const App = () => {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
       <Route path="/" element={<Landing user={user} jobs={jobs}/> } />
+      <Route path="/history" element={<SalesHistory user={user} jobs={jobs}/> } />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

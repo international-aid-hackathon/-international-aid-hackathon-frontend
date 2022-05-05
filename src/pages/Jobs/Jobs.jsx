@@ -19,8 +19,9 @@ function Jobs({ handlecreateJobs}) {
 
 	const formElement = useRef()
   
-  const handleChange = evt => {
-		setFormData({ ...formData, [evt.target.name]: evt.target.value })
+  const handleChange = (name) => (evt) => {
+    evt.preventDefault()
+		setJobData({ ...jobData, [evt.target.name]: evt.target.value })
 	}
 
 	useEffect(() => {
@@ -59,9 +60,8 @@ function Jobs({ handlecreateJobs}) {
           <option value="Stove">Stove</option>
         </select>
           <Customer
-          jobData={jobData}
-           handleChange={handleChange}
-
+            jobData={jobData}
+            handleChange={handleChange}
           />
         	<button
 						type="submit"
