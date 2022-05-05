@@ -1,7 +1,6 @@
 import { Box, Grid, Typography, FormControlLabel, Button } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function History({ setStep, orderData, setOrderData }) {
   const [selected, setSelected] = useState([]);
