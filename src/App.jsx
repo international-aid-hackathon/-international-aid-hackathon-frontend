@@ -8,6 +8,8 @@ import Login from "./pages/Login/Login";
 import Landing from "./pages/Landing/Landing";
 import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
+import Dashboard  from "./pages/Dashboard/Dashboard";
+import Jobs from "./pages/Jobs/Jobs";
 //end of components
 
 // services
@@ -25,16 +27,16 @@ const App = () => {
     product: "",
     quantity: "",
     "customer.name": "",
-   " customer.address": "",
-   " customer.phoneNumber": "",
+    " customer.address": "",
+    " customer.phoneNumber": "",
     "customer.deposit": "",
-   " customer.peopleInHouse": "",
+    " customer.peopleInHouse": "",
   });
 
   //end of states
 
   //useEffect
-
+ const [step, setStep] = useState(0)
   //end of useEffect
   const navigate = useNavigate();
 
@@ -75,6 +77,10 @@ const App = () => {
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
+        />
+          <Route
+          path="/jobs"
+          element={<Jobs />}
         />
         <Route
           path="/changePassword"

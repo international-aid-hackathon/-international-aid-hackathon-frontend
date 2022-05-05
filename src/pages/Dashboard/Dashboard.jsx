@@ -1,34 +1,30 @@
-import React, { useEffect } from 'react'
-
-import { useDispatch, useSelector } from 'react-redux'
-
-import { fetchEvents } from '../../redux/actions/eventActions'
-import { Link } from 'react-router-dom'
-import OrderCard from '../../components/OrderCard/OrderCard'
-import { Wrapper } from './Dashboard-styles'
-
+import React from 'react';
+// import Link from ''
+import { Link, useNavigate } from 'react-router-dom'
 const Dashboard = () => {
-    const orders = useSelector((state) => state.allOrders.orders.orders)
-    const dispatch = useDispatch()
-
-
-    useEffect(() => {
-        dispatch(fetchEvents())
-    }, [])
-
-
-    
 
     return (
-        <Wrapper>
-            {orders?.map((order) => (
-                <Link key={order._id} to={`/orders/${order._id}`}>
-                    <div className="order-box">
-                        <OrderCard order={order} />
-                    </div>
+        <>
+        <main>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><a> Sales </a></h4>
+                    <p class="card-text">Total Sales 0 </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><a>Card title</a></h4>
+                    <p class="card-text"> Commissions 0 </p>
+                </div>
+            </div>
+            <div>
+                <Link to="/jobs">
+                    <button className="btn btn-primary"> add jobs</button>
                 </Link>
-            ))}
-        </Wrapper>
+            </div>
+        </main>
+        </>
     )
 }
 export default Dashboard
