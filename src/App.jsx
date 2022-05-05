@@ -20,7 +20,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const [jobData, setJobData] = useState({});
   const [orderData, setOrderData] = useState({
-    sale: "",
+    saleType: "",
     date: "",
     priceBook: "",
     loan: "",
@@ -101,6 +101,7 @@ const App = () => {
           path="/job"
           element={
             <JobOrder
+            user={user}
               orderData={orderData}
               handleChange={handleChange}
               handleSignupOrLogin={handleSignupOrLogin}

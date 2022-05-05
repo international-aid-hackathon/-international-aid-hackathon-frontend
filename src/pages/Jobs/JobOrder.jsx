@@ -4,13 +4,15 @@ import { Button, Grid, Typography } from "@mui/material";
 import OrderField from "./OrderField";
 import { useNavigate } from "react-router-dom";
 
-function Jobs({ handleChange, orderData }) {
+function Jobs({ user, handleChange, orderData }) {
+    console.log(user._id)
+    console.log(orderData)
 
     let navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          await fetch("https://agile-ocean-17104.herokuapp.com/api/jobs/", {
+          await fetch(`https://agile-ocean-17104.herokuapp.com/api/jobs/${user._id}`, {
             method: "POST",
             headers: {
               "Content-Type": "Application/json",
@@ -26,6 +28,18 @@ function Jobs({ handleChange, orderData }) {
   return (
     <>
       <Grid container>
+     
+      <Grid item xs={5}  mb={2}>
+        <input
+          className="formInput"
+          value={orderData["customer.name"]}
+          placeholder='place'
+          id='html'
+          type="text"
+          onChange={handleChange('customer.name')}
+        />
+      </Grid>
+
         <Grid item xs={12}>
           <Box display={"flex"} justifyContent={"center"}>
             <Typography fontSize={24} mb={-2}>
@@ -44,7 +58,7 @@ function Jobs({ handleChange, orderData }) {
             label3="3"
             inputLabel="Enter a sale"
             handleChange={handleChange}
-            handleChangeInput="orderData.sales"
+            handleChangeInput="saleType"
           />
         </Grid>
         <Grid item xs={12}>
@@ -56,7 +70,7 @@ function Jobs({ handleChange, orderData }) {
             label2="6"
             inputLabel="Price Book"
             handleChange={handleChange}
-            handleChangeInput="orderData.priceBook"
+            handleChangeInput="priceBook"
           />
         </Grid>
         <Grid item xs={12}>
@@ -70,7 +84,7 @@ function Jobs({ handleChange, orderData }) {
             label3="Entrepreneur Filter"
             inputLabel="Filter"
             handleChange={handleChange}
-            handleChangeInput="orderData.product"
+            handleChangeInput="product"
           />
         </Grid>
         <Grid item xs={12}>
