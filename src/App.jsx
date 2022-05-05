@@ -75,13 +75,13 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} jobData={jobData} />} />
+        <Route path="/homepage" element={<Landing user={user} jobData={jobData} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/login"
+          path="/"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
@@ -90,7 +90,7 @@ const App = () => {
         />
         <Route
           path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
+          element={user ? <Profiles /> : <Navigate to="/" />}
         />
         <Route
           path="/changePassword"
@@ -98,7 +98,7 @@ const App = () => {
             user ? (
               <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
             ) : (
-              <Navigate to="/login" />
+              <Navigate to="/" />
             )
           }
         />

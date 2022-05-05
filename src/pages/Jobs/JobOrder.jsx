@@ -26,7 +26,7 @@ function Jobs({ user, handleChange, orderData, setOrderData }) {
     } catch (error) {
       console.log("error", error.message);
     }
-    navigate(`/`);
+    navigate(`/homepage`);
   };
   const handleNext = () => {
     setStep((currStep) => currStep + 1);
