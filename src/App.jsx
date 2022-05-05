@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 //components
 import NavBar from "./components/NavBar/NavBar";
 import Signup from "./pages/Signup/Signup";
@@ -9,7 +8,6 @@ import Landing from "./pages/Landing/Landing";
 import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import JobOrder from "./pages/Jobs/JobOrder";
-import Dashboard from "./pages/Dashboard/Dashboard";
 import SalesHistory from "./pages/SalesHistory/SalesHistory";
 //end of components
 
@@ -54,6 +52,7 @@ const App = () => {
     setUser(authService.getUser());
   };
 
+
   const MakeAPICall = async () => {
     const res = await fetch(
       `https://agile-ocean-17104.herokuapp.com/api/jobs/${user.profile}`
@@ -61,10 +60,13 @@ const App = () => {
     const data = await res.json();
     setJobData(data);
   };
+ 
+  
 
-  useEffect(() => {
-    MakeAPICall();
-  }, []);
+useEffect(() => {
+  MakeAPICall();
+}, [user]);
+
 
   const handleChange = (name) => (e) => {
     e.preventDefault();
