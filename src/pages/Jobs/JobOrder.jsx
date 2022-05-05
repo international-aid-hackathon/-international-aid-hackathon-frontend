@@ -9,7 +9,6 @@ import ReviewPage from "./ReviewPage";
 function Jobs({ user, handleChange, orderData, setOrderData }) {
   const [step, setStep] = useState(0);
   let navigate = useNavigate();
-  console.log(step);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
