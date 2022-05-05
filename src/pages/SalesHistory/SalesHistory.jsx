@@ -1,10 +1,11 @@
 import React from 'react';
 
-function SalesHistory({jobs}) {
+function SalesHistory({jobData}) {
+  console.log('here', jobData.jobDoc);
   return (
     <>
     
-      {jobs.map( (j, index) => (
+      {jobData.jobDoc?.map( (j, index) => (
           <div>
             {/* <h1>{j.customer.name}</h1>
             <h1>{j.customer.History}</h1>

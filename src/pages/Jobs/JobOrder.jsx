@@ -129,16 +129,16 @@ function Jobs({ user, handleChange, orderData }) {
         </Grid>
                 <Grid item xs={12}>
           <OrderField
-            htmlFor="product"
+            htmlFor="history"
             value1="Because I don't like the taste of chlorine"
-            value2= "Because my children are getting sick"
+            value2="Because my children are getting sick"
             value3="Because the product is cheaper than I used to"
             label1="Because I don't like the taste of chlorine"
             label2="Because my children are getting sick"
             label3="Because the product is cheaper than I used to"
             inputLabel="Because I don't like the taste of chlorine"
             handleChange={handleChange}
-            handleChangeInput="product"
+            handleChangeInput="history"
           />
         </Grid>
         <Grid item xs={12}>
