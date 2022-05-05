@@ -9,6 +9,8 @@ import Landing from "./pages/Landing/Landing";
 import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import JobOrder from "./pages/Jobs/JobOrder";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import SalesHistory from "./pages/SalesHistory/SalesHistory";
 //end of components
 
 // services
@@ -28,10 +30,11 @@ const App = () => {
     product: "",
     quantity: "",
     "customer.name": "",
-    " customer.address": "",
-    " customer.phoneNumber": "",
+    "customer.address": "",
+    "customer.phoneNumber": "",
     "customer.deposit": "",
-    " customer.peopleInHouse": "",
+    "customer.peopleInHouse": "",
+    history: ""
   });
 
   //end of states
@@ -56,7 +59,6 @@ const App = () => {
       `https://agile-ocean-17104.herokuapp.com/api/jobs/${user.profile}`
     );
     const data = await res.json();
-    // console.log(data)
     setJobData(data);
   };
 
@@ -69,12 +71,11 @@ const App = () => {
     setOrderData({ ...orderData, [name]: e.target.value });
   };
 
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Landing user={user} jobData={jobData} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -82,6 +83,10 @@ const App = () => {
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+        />
+        <Route
+          path="/history"
+          element={<SalesHistory jobData={jobData} />}
         />
         <Route
           path="/profiles"
@@ -101,7 +106,8 @@ const App = () => {
           path="/job"
           element={
             <JobOrder
-            user={user}
+              setOrderData={setOrderData}
+              user={user}
               orderData={orderData}
               handleChange={handleChange}
               handleSignupOrLogin={handleSignupOrLogin}
