@@ -14,6 +14,7 @@ import Jobs from "./pages/Jobs/Jobs";
 
 // services
 import * as authService from "./services/authService";
+import * as jobsService from "./services/jobsServices"
 // end of services
 
 const App = () => {
@@ -34,10 +35,15 @@ const App = () => {
   });
 
   //end of states
-
+  const [step, setStep] = useState(0)
+  const [ jobs, setjobs] = useState([])
   //useEffect
- const [step, setStep] = useState(0)
+  useEffect(()=>{
+    jobsService.getAllJobs()
+    .then(job => setjobs(job))
+  },[])
   //end of useEffect
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -49,17 +55,6 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser());
   };
-
-  const MakeAPICall = async () => {
-    const res = await fetch(`https://agile-ocean-17104.herokuapp.com/api/jobs/${user.profile}`);
-    const data = await res.json();
-    console.log(data)
-    setJobData(data)
-  }
-
-  useEffect(() => {
-    MakeAPICall();
-  }, []);
 
   return (
     <>
