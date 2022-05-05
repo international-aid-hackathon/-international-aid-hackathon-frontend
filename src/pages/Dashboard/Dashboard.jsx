@@ -1,7 +1,8 @@
 import React from 'react';
 // import Link from ''
 import { Link, useNavigate } from 'react-router-dom'
-const Dashboard = ({jobs}) => {
+const Dashboard = ({jobs, jobData}) => {
+    console.log('herer',jobData.jobDoc?.length)
 
     return (
         <>
@@ -9,7 +10,7 @@ const Dashboard = ({jobs}) => {
             <div className="card">
                 <div className="card-body">
                     <h4 className="card-title"><a> Sales </a></h4>
-                    <p className="card-text">Total Sales 0{jobs.length} </p>
+                    <p className="card-text">Total Sales {jobData.jobDoc?.length} </p>
                     <Link to="/history">
                     <button className="btn btn-primary">  sales History </button>
                     </Link>
@@ -22,7 +23,7 @@ const Dashboard = ({jobs}) => {
                 </div>
             </div>
             <div>
-                <Link to="/jobs">
+                <Link to="/job">
                     <button className="btn btn-primary"> add jobs</button>
                 </Link>
             </div>

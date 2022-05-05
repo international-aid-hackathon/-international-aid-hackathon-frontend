@@ -9,6 +9,7 @@ import Landing from "./pages/Landing/Landing";
 import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import JobOrder from "./pages/Jobs/JobOrder";
+import Dashboard from "./pages/Dashboard/Dashboard";
 //end of components
 
 // services
@@ -75,7 +76,7 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Landing user={user} jobData={jobData}  />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
