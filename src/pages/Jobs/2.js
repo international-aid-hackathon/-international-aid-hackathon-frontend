@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 //components
 import NavBar from "./components/NavBar/NavBar";
 import Signup from "./pages/Signup/Signup";
@@ -9,8 +8,7 @@ import Landing from "./pages/Landing/Landing";
 import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import JobOrder from "./pages/Jobs/JobOrder";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import SalesHistory from "./pages/SalesHistory/SalesHistory";
+import History from "./pages/Jobs/History";
 //end of components
 
 // services
@@ -30,10 +28,10 @@ const App = () => {
     product: "",
     quantity: "",
     "customer.name": "",
-    "customer.address": "",
-    "customer.phoneNumber": "",
+    " customer.address": "",
+    " customer.phoneNumber": "",
     "customer.deposit": "",
-    "customer.peopleInHouse": "",
+    " customer.peopleInHouse": "",
     history: ""
   });
 
@@ -62,7 +60,6 @@ const App = () => {
     // console.log(data)
     setJobData(data);
   };
-  console.log(jobData);
 
   useEffect(() => {
     MakeAPICall();
@@ -73,11 +70,12 @@ const App = () => {
     setOrderData({ ...orderData, [name]: e.target.value });
   };
 
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} jobData={jobData} />} />
+        <Route path="/" element={<Landing user={user} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -85,10 +83,6 @@ const App = () => {
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
-        />
-        <Route
-          path="/history"
-          element={<SalesHistory jobData={jobData} />}
         />
         <Route
           path="/profiles"
@@ -108,8 +102,19 @@ const App = () => {
           path="/job"
           element={
             <JobOrder
-              setOrderData={setOrderData}
-              user={user}
+            user={user}
+              orderData={orderData}
+              handleChange={handleChange}
+              handleSignupOrLogin={handleSignupOrLogin}
+            />
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <History
+            user={user}
+            setOrderData={setOrderData}
               orderData={orderData}
               handleChange={handleChange}
               handleSignupOrLogin={handleSignupOrLogin}

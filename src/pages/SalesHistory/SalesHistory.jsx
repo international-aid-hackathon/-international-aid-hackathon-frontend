@@ -1,5 +1,6 @@
 import React from 'react';
-
+import styles from './SalesHistory.module.css'
+import Card from 'react-bootstrap'
 function SalesHistory({jobData}) {
   console.log('here', jobData.jobDoc);
   return (
