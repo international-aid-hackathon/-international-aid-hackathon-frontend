@@ -1,6 +1,4 @@
-// import { Box, Select } from "@chakra-ui/react";
-import { Box } from "@mui/system";
-import { Button, Grid, Typography } from "@mui/material";
+import {  Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Customer from "./Customer";
 import History from "./History";
@@ -11,7 +9,6 @@ import ReviewPage from "./ReviewPage";
 function Jobs({ user, handleChange, orderData, setOrderData }) {
   const [step, setStep] = useState(0);
   let navigate = useNavigate();
-  console.log(step);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,9 +32,6 @@ function Jobs({ user, handleChange, orderData, setOrderData }) {
     setStep((currStep) => currStep + 1);
   };
 
-  // const handlePrev = () => {
-  //   setStep((currStep) => currStep - 1);
-  // };
 
   const OrderDisplay = () => {
     if (step === 1) {
