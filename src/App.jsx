@@ -10,6 +10,7 @@ import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import Dashboard  from "./pages/Dashboard/Dashboard";
 import Jobs from "./pages/Jobs/Jobs";
+import Customer from "./pages/Customer/Customer";
 //end of components
 
 // services
@@ -20,32 +21,38 @@ import * as jobsService from "./services/jobsServices"
 const App = () => {
   //states
   const [user, setUser] = useState(authService.getUser());
-  const [jobData, setJobData] = useState({
-    date: "",
-    priceBook: "",
-    loan: "",
-    payFull: "",
-    product: "",
-    quantity: "",
-    "customer.name": "",
-    " customer.address": "",
-    " customer.phoneNumber": "",
-    "customer.deposit": "",
-    " customer.peopleInHouse": "",
-  });
-
-  //end of states
-  const [step, setStep] = useState(0)
+    const [step, setStep] = useState(0)
   const [ jobs, setjobs] = useState([])
+
+  // const [jobData, setJobData] = useState({
+  //   date: "",
+  //   priceBook: "",
+  //   loan: "",
+  //   payFull: "",
+  //   product: "",
+  //   quantity: "",
+  //   "customer.name": "",
+  //   " customer.address": "",
+  //   " customer.phoneNumber": "",
+  //   "customer.deposit": "",
+  //   " customer.peopleInHouse": "",
+  // });
+  //end of states
+
   //useEffect
   useEffect(()=>{
     jobsService.getAllJobs()
     .then(job => setjobs(job))
   },[])
+  console.log(jobs)
   //end of useEffect
+	const handlecreateJobs =async newJobs => {
+    const newJob = await jobsService.createjobs(newJobs)
+    setjobs([...jobs, newJob])
+    navigate('/')
+	}
 
   const navigate = useNavigate();
-
   const handleLogout = () => {
     authService.logout();
     setUser(null);
@@ -54,7 +61,8 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser());
-  };
+  }
+
 
   return (
     <>
@@ -75,7 +83,7 @@ const App = () => {
         />
           <Route
           path="/jobs"
-          element={<Jobs />}
+          element={<Jobs jobs={jobs}  handlecreateJobs={handlecreateJobs}/>}
         />
         <Route
           path="/changePassword"
