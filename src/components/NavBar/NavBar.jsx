@@ -1,34 +1,37 @@
 import { Link } from 'react-router-dom'
-
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 const NavBar = ({ user, handleLogout }) => {
   return (
     <>
       {user ?
-      <div className="container">
-        
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <ul>
-            <li>Welcome, {user.name}</li>
-            <ul><Link to="/profiles">Profiles</Link></ul>
-            <ul><Link to="" onClick={handleLogout}>LOG OUT</Link></ul>
-            <ul><Link to="/changePassword">Change Password</Link></ul>
-            <ul><Link to="/">Dashboard</Link></ul>
-          </ul>
-        </nav>
-        </div>  
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Container>
+          <Navbar.Brand href="/"> {user.name}</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/job"><Link to="/job"> add jobs</Link></Nav.Link>
+              <Nav.Link ><li ><Link to="/changePassword">Change Password</Link></li></Nav.Link>
+              <Nav.Link ><li ><Link to="/">Dashboard</Link></li></Nav.Link>
+              <Nav.Link ><li><Link to="" onClick={handleLogout}>LOG OUT</Link></li></Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          </Container>
+        </Navbar>
       :
-
-        <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <ul>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-            <li><Link to="/">Dashboard</Link></li>
-          </ul>
-        </nav>
-        </div>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Container>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link ><li ><li><Link to="/signup">Sign Up</Link></li></li></Nav.Link>
+              <Nav.Link ><li ><li><Link to="/login">Log In</Link></li></li></Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          </Container>
+          </Navbar>
       }
-
     </>
   )
 }

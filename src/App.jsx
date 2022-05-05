@@ -10,6 +10,7 @@ import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import JobOrder from "./pages/Jobs/JobOrder";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import SalesHistory from "./pages/SalesHistory/SalesHistory";
 //end of components
 
 // services
@@ -82,6 +83,10 @@ const App = () => {
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+        />
+        <Route
+          path="/history"
+          element={<SalesHistory jobData={jobData} />}
         />
         <Route
           path="/profiles"

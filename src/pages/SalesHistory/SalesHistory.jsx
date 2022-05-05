@@ -1,10 +1,12 @@
 import React from 'react';
-
-function SalesHistory({jobs}) {
+import styles from './SalesHistory.module.css'
+import Card from 'react-bootstrap'
+function SalesHistory({jobData}) {
+  console.log('here', jobData.jobDoc);
   return (
     <>
     
-      {jobs.map( (j, index) => (
+      {jobData.jobDoc?.map( (j, index) => (
           <div>
             {/* <h1>{j.customer.name}</h1>
             <h1>{j.customer.History}</h1>

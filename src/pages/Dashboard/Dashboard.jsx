@@ -1,13 +1,14 @@
 import React from 'react';
 // import Link from ''
 import { Link, useNavigate } from 'react-router-dom'
+import styles from './Dashboard.module.css';
 const Dashboard = ({jobs, jobData}) => {
     console.log('herer',jobData.jobDoc?.length)
 
     return (
         <>
-        <main>
-            <div className="card">
+        <main className={styles.container}>
+            <div className="card" id={styles.firstCard} >
                 <div className="card-body">
                     <h4 className="card-title"><a> Sales </a></h4>
                     <p className="card-text">Total Sales {jobData.jobDoc?.length} </p>
@@ -16,18 +17,18 @@ const Dashboard = ({jobs, jobData}) => {
                     </Link>
                 </div>
             </div>
-            <div className="card">
+            <div className="card" id={styles.secondCard}>
                 <div className="card-body">
                     <h4 className="card-title"><a>Card title</a></h4>
                     <p className="card-text"> Commissions 0 </p>
                 </div>
             </div>
-            <div>
+        </main>
+            <div className={styles.buttonTag}>
                 <Link to="/job">
                     <button className="btn btn-primary"> add jobs</button>
                 </Link>
             </div>
-        </main>
         </>
     )
 }
